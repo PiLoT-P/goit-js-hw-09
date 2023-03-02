@@ -1,21 +1,21 @@
 function createPromise(position, delay) {
   const promise = new Promise((resolve, reject) => {
   const shouldResolve = Math.random() > 0.3;
-  if (shouldResolve) {
-    resolve(`✅ Fulfilled ${position} in ${delay}ms`);
-  } else {
-    reject(`❌ Rejected ${position} in ${delay}ms`);
-  }
+    setTimeout(() => {
+      if (shouldResolve) {
+        resolve(`✅ Fulfilled ${position} in ${delay}ms`);
+      } else {
+        reject(`❌ Rejected ${position} in ${delay}ms`);
+      }
+    }, delay)
   })
 
-  setTimeout(() => {
-    promise.then((nice) => {
-      console.log(nice);
+  promise.then((nice) => {
+    console.log(nice);
+  })
+    .catch((error) => {
+      console.log(error);
     })
-      .catch((error) => {
-        console.log(error);
-      })
-  }, delay);
 }
 
 const form = document.querySelector('.form');
@@ -35,3 +35,4 @@ function getPromise(event) {
 }
 
 form.addEventListener('submit', getPromise);
+

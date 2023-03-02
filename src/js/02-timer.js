@@ -48,8 +48,7 @@ function convertMs(ms) {
 
 function addLeadingZero(value){
     if (value < 10) {
-        value = `0${value}`;
-        return value;
+        return String(value).padStart(2, '0');
     } else {
         return value;
     }
