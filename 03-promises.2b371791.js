@@ -1,2 +1,0 @@
-!function(){function n(n,e){new Promise((function(t,o){var c=Math.random()>.3;setTimeout((function(){c?t("✅ Fulfilled ".concat(n," in ").concat(e,"ms")):o("❌ Rejected ".concat(n," in ").concat(e,"ms"))}),e)})).then((function(n){console.log(n)})).catch((function(n){console.log(n)}))}document.querySelector(".form").addEventListener("submit",(function(e){e.preventDefault();for(var t=document.querySelectorAll("input"),o=t[2].value,c=Number(t[0].value),u=Number(t[1].value),i=0;i<o;i++)n(i+1,c),c+=u}))}();
-//# sourceMappingURL=03-promises.2b371791.js.map
