@@ -4,7 +4,9 @@ import "flatpickr/dist/flatpickr.min.css";
 
 const dateNow = Date.now();
 const startButton = document.querySelector('button[data-start]');
+const inputText = document.querySelector('#datetime-picker');
 let TIME ;
+
 
 startButton.disabled = true;
 
@@ -47,15 +49,12 @@ function convertMs(ms) {
 }
 
 function addLeadingZero(value){
-    if (value < 10) {
-        return String(value).padStart(2, '0');
-    } else {
-        return value;
-    }
+    return String(value).padStart(2, '0');
 }
 
 function timer(event) {
     startButton.disabled = true;
+    inputText.disabled = true;
     const timer = setInterval(() => {
         const now = Date.now();
         const timerTime = convertMs(TIME - now);

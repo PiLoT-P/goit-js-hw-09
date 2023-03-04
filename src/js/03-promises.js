@@ -9,15 +9,8 @@ function createPromise(position, delay) {
       }
     }, delay)
   })
-
-  promise.then((nice) => {
-    console.log(nice);
-  })
-    .catch((error) => {
-      console.log(error);
-    })
+  return promise;
 }
-
 const form = document.querySelector('.form');
 
 function getPromise(event) {
@@ -28,7 +21,9 @@ function getPromise(event) {
   const stepDelay = Number(inputValue[1].value);
 
   for (let i = 0; i < emaunt; i++){
-    createPromise(i + 1, startDelay);
+    createPromise(i + 1, startDelay)
+      .then((nice) => {console.log(nice);})
+    .catch((error) => {console.log(error);});
     startDelay += stepDelay;
   }
   
